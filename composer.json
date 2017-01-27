@@ -1,0 +1,61 @@
+{
+    "name": "wsiservices/gsnapup",
+    "description": "Google Cloud Sanpshot Backup System",
+    "type": "project",
+    "keywords": [
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sam Likins",
+            "email": "sam.likins@wsi-services.com",
+            "homepage": "http://wsi-services.com/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "illuminate/config": "^5.4",
+        "mrrio/shellwrap": "^0.4",
+        "mtdowling/cron-expression": "^1.2",
+        "symfony/console": "^3.2"
+    },
+    "require-dev": {
+        "laravel/homestead": "^4",
+        "mikey179/vfsStream": "^1.6",
+        "mockery/mockery": "^0.9",
+        "phploc/phploc": "^3",
+        "phpmd/phpmd": "^2.4",
+        "phpunit/phpunit": "^5",
+        "sebastian/phpcpd": "^2.0",
+        "squizlabs/php_codesniffer": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "WSIServices\\GSnapUp\\": "source/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WSIServices\\GSnapUp\\Tests\\": "tests/source/"
+        }
+    },
+    "bin": [
+        "bin/gsnapup.php"
+    ],
+    "scripts": {
+        "phpcpd": "./vendor/bin/phpcpd source/",
+        "phpcs": "./vendor/bin/phpcs",
+        "phplint": "php -l source/",
+        "phploc": "./vendor/bin/phploc --progress --count-tests --exclude='vendor' ./",
+        "phpmd": "./vendor/bin/phpmd source/ text phpmd.xml.dist",
+        "phpunit": "./vendor/bin/phpunit",
+        "all-tests": [
+            "@phplint",
+            "@phpunit",
+            "@phpmd",
+            "@phpcpd",
+            "@phpcs",
+            "@phploc"
+        ]
+    }
+}
