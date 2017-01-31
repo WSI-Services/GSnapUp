@@ -49,7 +49,7 @@
         "phploc": "./vendor/bin/phploc --progress --count-tests --exclude='vendor' ./",
         "phpmd": "./vendor/bin/phpmd source/ text phpmd.xml.dist",
         "phpunit": "./vendor/bin/phpunit",
-        "all-tests": [
+        "dev-tests": [
             "@phplint",
             "@phpunit",
             "@phpmd",

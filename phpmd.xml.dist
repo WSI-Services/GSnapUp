@@ -30,7 +30,7 @@
              costs and instead inject dependencies through the constructor. The
              only case when static access is acceptable is when used for factory
              methods. -->
-        <!-- <exclude name="StaticAccess" /> -->
+        <exclude name="StaticAccess" />
     </rule>
 
     <!-- Code Size Rules:     The Code Size Ruleset contains a collection of
@@ -86,7 +86,7 @@
              refactoring, in order to reduce its complexity and find a way to
              have more fine grained objects. By default it ignores methods
              starting with 'get' or 'set'. -->
-        <!-- <exclude name="TooManyPublicMethods" /> -->
+        <exclude name="TooManyPublicMethods" />
 
         <!-- The Weighted Method Count (WMC) of a class is a good indicator of
              how much time and effort is required to modify and maintain this
