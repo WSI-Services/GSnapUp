@@ -13,6 +13,12 @@ Before you can start using `GSnapUp` you must setup Google Cloud SDK:
  * [Initialize](https://cloud.google.com/sdk/docs/initializing)
 
 
+Commands
+--------
+
+init                Initialize configuration
+
+
 Configuration
 -------------
 

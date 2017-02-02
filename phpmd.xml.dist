@@ -10,12 +10,12 @@
     <!-- Clean Code Rules:    The Clean Code ruleset contains rules that enforce
          a clean code base. This includes rules from SOLID and object
          calisthenics. -->
-    <rule ref="rulesets/cleancode.xml">
+    <!-- <rule ref="rulesets/cleancode.xml"> -->
         <!-- A boolean flag argument is a reliable indicator for a violation of
              the Single Responsibility Principle (SRP). You can fix this
              problem by extracting the logic in the boolean flag into its own
              class or method. -->
-        <exclude name="BooleanArgumentFlag" />
+        <!-- <exclude name="BooleanArgumentFlag" /> -->
 
         <!-- An if expression with an else branch is never necessary. You can
              rewrite the conditions in a way that the else is not necessary and
@@ -23,15 +23,15 @@
              statements. To achieve this you may need to split the code it
              several smaller methods. For very simple assignments you could also
              use the ternary operations. -->
-        <exclude name="ElseExpression" />
+        <!-- <exclude name="ElseExpression" /> -->
 
         <!-- Static access causes unexchangeable dependencies to other classes
              and leads to hard to test code. Avoid using static access at all
              costs and instead inject dependencies through the constructor. The
              only case when static access is acceptable is when used for factory
              methods. -->
-        <exclude name="StaticAccess" />
-    </rule>
+        <!-- <exclude name="StaticAccess" /> -->
+    <!-- </rule> -->
 
     <!-- Code Size Rules:     The Code Size Ruleset contains a collection of
          rules that find code size related problems. -->
@@ -52,12 +52,12 @@
         <!-- Violations of this rule usually indicate that the method is doing
              too much. Try to reduce the method size by creating helper methods
              and removing any copy/pasted code. -->
-        <!-- <exclude name="ExcessiveMethodLength" /> -->
+        <exclude name="ExcessiveMethodLength" />
 
         <!-- Long Class files are indications that the class may be trying to do
              too much. Try to break it down, and reduce the size to something
              manageable. -->
-        <!-- <exclude name="ExcessiveClassLength" /> -->
+        <exclude name="ExcessiveClassLength" />
 
         <!-- Long parameter lists can indicate that a new object should be
              created to wrap the numerous parameters. Basically, try to group
@@ -95,6 +95,18 @@
              that this class has a greater potential impact on derived classes.
              -->
         <!-- <exclude name="ExcessiveClassComplexity" /> -->
+    </rule>
+
+    <rule ref="rulesets/codesize.xml/ExcessiveMethodLength">
+        <properties>
+            <property name="ignore-whitespace" value="true" />
+        </properties>
+    </rule>
+
+    <rule ref="rulesets/codesize.xml/ExcessiveClassLength">
+        <properties>
+            <property name="ignore-whitespace" value="true" />
+        </properties>
     </rule>
 
     <!-- Controversial Rules: This ruleset contains a collection of
@@ -213,7 +225,7 @@
 
         <!-- Avoid passing parameters to methods or constructors and then not
              using those parameters. -->
-        <!-- <exclude name="UnusedFormalParameter" /> -->
+        <exclude name="UnusedFormalParameter" />
     </rule>
 
 </ruleset>
