@@ -41,13 +41,13 @@
              'while', 'for', and 'case labels'. Generally, 1-4 is low
              complexity, 5-7 indicates moderate complexity, 8-10 is high
              complexity, and 11+ is very high complexity. -->
-        <!-- <exclude name="CyclomaticComplexity" /> -->
+        <exclude name="CyclomaticComplexity" />
 
         <!-- The NPath complexity of a method is the number of acyclic execution
              paths through that method. A threshold of 200 is generally
              considered the point where measures should be taken to reduce
              complexity. -->
-        <!-- <exclude name="NPathComplexity" /> -->
+        <exclude name="NPathComplexity" />
 
         <!-- Violations of this rule usually indicate that the method is doing
              too much. Try to reduce the method size by creating helper methods
@@ -100,12 +100,14 @@
     <rule ref="rulesets/codesize.xml/ExcessiveMethodLength">
         <properties>
             <property name="ignore-whitespace" value="true" />
+            <property name="minimum" value="200" />
         </properties>
     </rule>
 
     <rule ref="rulesets/codesize.xml/ExcessiveClassLength">
         <properties>
             <property name="ignore-whitespace" value="true" />
+            <property name="minimum" value="2000" />
         </properties>
     </rule>
 

@@ -17,6 +17,7 @@ Commands
 --------
 
 init                Initialize configuration
+instance:add        Add instance to configuration
 
 
 Configuration
