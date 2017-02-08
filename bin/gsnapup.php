@@ -5,6 +5,7 @@ use \Symfony\Component\Console\Application;
 use \Symfony\Component\Console\Input\InputOption;
 use \WSIServices\GSnapUp\Console\Command\Init;
 use \WSIServices\GSnapUp\Console\Command\InstanceAdd;
+use \WSIServices\GSnapUp\Console\Command\InstanceList;
 
 // Verify API is command line interface
 if(PHP_SAPI !== 'cli') {
@@ -35,6 +36,7 @@ $application->getDefinition()
 // Configure available commands
 $application->add(new Init);
 $application->add(new InstanceAdd);
+$application->add(new InstanceList);
 
 // Start application
 $application->run();

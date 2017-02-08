@@ -18,6 +18,7 @@ Commands
 
 init                Initialize configuration
 instance:add        Add instance to configuration
+instance:list       List configured instances
 
 
 Configuration
