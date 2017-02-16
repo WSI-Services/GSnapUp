@@ -20,6 +20,7 @@ init                Initialize configuration
 instance:add        Add instance to configuration
 instance:available  List available GCloud instances
 instance:list       List configured instances
+instance:update     Update instance in configuration
 
 
 Configuration
