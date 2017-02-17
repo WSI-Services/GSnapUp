@@ -8,6 +8,7 @@ use \WSIServices\GSnapUp\Console\Command\InstanceAdd;
 use \WSIServices\GSnapUp\Console\Command\InstanceAvailable;
 use \WSIServices\GSnapUp\Console\Command\InstanceList;
 use \WSIServices\GSnapUp\Console\Command\InstanceUpdate;
+use \WSIServices\GSnapUp\Console\Command\Scheduled;
 
 // Verify API is command line interface
 if(PHP_SAPI !== 'cli') {
@@ -41,6 +42,7 @@ $application->add(new InstanceAdd);
 $application->add(new InstanceAvailable);
 $application->add(new InstanceList);
 $application->add(new InstanceUpdate);
+$application->add(new Scheduled);
 
 // Start application
 $application->run();
