@@ -7,6 +7,7 @@ use \WSIServices\GSnapUp\Console\Command\Init;
 use \WSIServices\GSnapUp\Console\Command\InstanceAdd;
 use \WSIServices\GSnapUp\Console\Command\InstanceAvailable;
 use \WSIServices\GSnapUp\Console\Command\InstanceList;
+use \WSIServices\GSnapUp\Console\Command\InstanceRemove;
 use \WSIServices\GSnapUp\Console\Command\InstanceUpdate;
 
 // Verify API is command line interface
@@ -40,6 +41,7 @@ $application->add(new Init);
 $application->add(new InstanceAdd);
 $application->add(new InstanceAvailable);
 $application->add(new InstanceList);
+$application->add(new InstanceRemove);
 $application->add(new InstanceUpdate);
 
 // Start application
