@@ -54,7 +54,7 @@ class Init extends Command {
     }
 
     protected function initialize(InputInterface $input, OutputInterface $output) {
-        $this->configurationInitialize($input, false);
+        $this->configurationInitialize($input, $output, false);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) {

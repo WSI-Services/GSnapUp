@@ -27,14 +27,7 @@ class InstanceAdd extends Command {
     }
 
     protected function initialize(InputInterface $input, OutputInterface $output) {
-        try {
-            $this->configurationInitialize($input);
-        } catch(Exception $e) {
-            $output->setVerbosity(OutputInterface::VERBOSITY_NORMAL);
-            $style = new SymfonyStyle($input, $output);
-
-            $style->error($e->getMessage());
-        }
+        $this->configurationInitialize($input, $output);
 
         $this->gSnapUpInitialize();
     }

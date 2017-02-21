@@ -9,18 +9,18 @@ use \Symfony\Component\Console\Output\OutputInterface;
 use \Symfony\Component\Console\Style\SymfonyStyle;
 use \WSIServices\GSnapUp\Console\Helper\ConfigurationTrait;
 
-class InstanceRemove extends Command {
+class InstanceEnable extends Command {
 
     use ConfigurationTrait;
 
     protected function configure() {
-        $this->setName('instance:remove')
-            ->setDescription('Remove instance from configuration')
-            ->setHelp('The <info>instance:remove</info> command allows you to remove an instance (and disks) from the configuration file')
+        $this->setName('instance:enable')
+            ->setDescription('Enable instance in configuration')
+            ->setHelp('The <info>instance:enable</info> command allows you to enable an instance (and disks) in the configuration file')
             ->addArgument(
                 'token',
                 InputArgument::REQUIRED,
-                'Specify instance token to remove'
+                'Specify instance token to enable'
             );
     }
 
@@ -39,12 +39,28 @@ class InstanceRemove extends Command {
                 throw new RuntimeException('Instance token missing in configuration: '.$instanceToken);
             }
 
-            $this->configuration->removeInstance($instanceToken);
+            $instance = $this->configuration->getInstance($instanceToken);
+
+            $instance->set('enabled', true);
+
+            if($style->confirm('Enable all instances disks', true)) {
+                $diskTokens = $instance->diskTokens();
+
+                foreach($diskTokens as $diskToken) {
+                    $disk = $instance->getDisk($diskToken);
+
+                    $disk->remove('enabled');
+
+                    $instance->setDisk($disk);
+                }
+            }
+
+            $this->configuration->setInstance($instance);
 
             $this->configuration->save();
 
-            $style->success('Instance removed');
-        } catch (Exception $e) {
+            $style->success('Instance enabled');
+        } catch(Exception $e) {
             $style->error($e->getMessage());
         }
     }

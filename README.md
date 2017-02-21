@@ -19,6 +19,8 @@ Commands
 init                Initialize configuration
 instance:add        Add instance to configuration
 instance:available  List available GCloud instances
+instance:disable    Disable instance in configuration
+instance:enable     Enable instance in configuration
 instance:list       List configured instances
 instance:remove     Remove instance from configuration
 instance:update     Update instance in configuration
