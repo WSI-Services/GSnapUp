@@ -24,6 +24,7 @@ instance:enable     Enable instance in configuration
 instance:list       List configured instances
 instance:remove     Remove instance from configuration
 instance:update     Update instance in configuration
+snapshot            Perform a snapshot of one or more instances
 
 
 Configuration
