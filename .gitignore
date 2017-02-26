@@ -1,6 +1,8 @@
 /.vagrant/
+/bin/version.txt
 /tests/logs/
 /vendor/
 /composer.lock
 /gsnapup.json
+/gsnapup.phar
 /Homestead.yaml

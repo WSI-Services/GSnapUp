@@ -40,6 +40,7 @@
         }
     },
     "bin": [
+        "bin/gsnapup",
         "bin/gsnapup.php"
     ],
     "scripts": {
@@ -56,6 +57,24 @@
             "@phpcpd",
             "@phpcs",
             "@phploc"
-        ]
+        ],
+        "install:pharbuilder": "@composer global require macfja/phar-builder",
+        "build:phar": "phar-builder package ./composer.json"
+    },
+    "extra": {
+        "phar-builder": {
+            "name": "gsnapup.phar",
+            "compression": "none",
+            "entry-point": "bin/gsnapup.php",
+            "include": [ "bin" ],
+            "output-dir": "./",
+            "events": {
+                "command.package.start" : "git describe --tags > bin/version.txt",
+                "command.package.end": [
+                    "rm bin/version.txt",
+                    "chmod +x gsnapup.phar"
+                ]
+            }
+        }
     }
 }

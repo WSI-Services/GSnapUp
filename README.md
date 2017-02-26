@@ -3,6 +3,16 @@ GSnapUp
 
 Google Cloud Platform Snapshot Backup System
 
+Google Cloud Platform (GCP) provides a feature for generating delta-based disk
+snapshots; allowing for quick & reliable images of system instances.  Utilizing
+this feature to create periodic backups can fill the need to implement another
+backup procedure.  The only drawback for using this feature as a scheduled
+backup system is it's a manual process.
+
+*GSnapUp* provides the missing scheduling component providing a simple command-
+line interface to configure and schedule recurring backups on any and all disks
+in a GCP project.
+
 
 
 Prerequisites
