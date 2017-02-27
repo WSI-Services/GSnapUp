@@ -11,8 +11,6 @@ namespace WSIServices\GSnapUp\Tests\Console\Helper {
     use \WSIServices\GSnapUp\Tests\BaseTestCase;
     use \WSIServices\GSnapUp\Tests\Console\Helper\ConfigurationTraitMock;
 
-    define('CONFIGURATION_NAME', 'appName');
-
     class ConfigurationTraitTest extends BaseTestCase {
 
         protected $configurationTrait;
@@ -69,10 +67,17 @@ namespace WSIServices\GSnapUp\Tests\Console\Helper {
                 Configuration::class
             );
 
-            $this->configurationTrait->shouldAllowMockingProtectedMethods()
-                ->shouldReceive('getNewConfiguration')
+            $configurationName = 'appName';
+
+            $this->configurationTrait->shouldAllowMockingProtectedMethods();
+
+            $this->configurationTrait->shouldReceive('getApplication->getConfigurationFilename')
                 ->once()
-                ->with($parentDirectory->url().'/'.CONFIGURATION_NAME)
+                ->andReturn($configurationName);
+
+            $this->configurationTrait->shouldReceive('getNewConfiguration')
+                ->once()
+                ->with($parentDirectory->url().'/'.$configurationName)
                 ->andReturn($configuration);
 
             $exceptionMessage = 'Exception Message';
@@ -122,10 +127,17 @@ namespace WSIServices\GSnapUp\Tests\Console\Helper {
                 Configuration::class
             );
 
-            $this->configurationTrait->shouldAllowMockingProtectedMethods()
-                ->shouldReceive('getNewConfiguration')
+            $configurationName = 'appName';
+
+            $this->configurationTrait->shouldAllowMockingProtectedMethods();
+
+            $this->configurationTrait->shouldReceive('getApplication->getConfigurationFilename')
                 ->once()
-                ->with($parentDirectory->url().'/'.CONFIGURATION_NAME)
+                ->andReturn($configurationName);
+
+            $this->configurationTrait->shouldReceive('getNewConfiguration')
+                ->once()
+                ->with($parentDirectory->url().'/'.$configurationName)
                 ->andReturn($configuration);
 
             $throwException = false;

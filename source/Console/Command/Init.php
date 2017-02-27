@@ -20,7 +20,7 @@ class Init extends Command {
     protected function configure() {
         $this->setName('init')
             ->setDescription('Initialize configuration')
-            ->setHelp('The <info>init</info> command creates a basic '.CONFIGURATION_NAME.' file in the current directory')
+            ->setHelp('The <info>init</info> command creates a basic configuration file in the current directory')
             ->addOption(
                 'timezone',
                 'z',
@@ -69,7 +69,7 @@ class Init extends Command {
             true
         );
 
-        $style->text('This command will guide you through creating your <info>'.CONFIGURATION_NAME.'</info> configuration.');
+        $style->text('This command will guide you through creating your <info>'.$this->getApplication()->getConfigurationFilename().'</info> configuration.');
         $style->newLine();
 
         try {

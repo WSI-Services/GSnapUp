@@ -1,7 +1,6 @@
 <?php
 
-use \Symfony\Component\Console\Application;
-use \Symfony\Component\Console\Input\InputOption;
+use \WSIServices\GSnapUp\Console\Application;
 use \WSIServices\GSnapUp\Console\Command\Init;
 use \WSIServices\GSnapUp\Console\Command\InstanceAdd;
 use \WSIServices\GSnapUp\Console\Command\InstanceAvailable;
@@ -29,29 +28,11 @@ foreach([
 	}
 }
 
-if(is_readable(__DIR__.'/version.txt')) {
-	$version = file_get_contents(__DIR__.'/version.txt') ?: 'dev';
-} else {
-	$version = 'dev';
-}
-
-// Setup application constants
-define('APPLICATION_NAME', 'GSnapUp');
-define('CONFIGURATION_NAME', strtolower(APPLICATION_NAME).'.json');
-define('APPLICATION_VERSION', $version);
-
 // Initialize application
-$application = new Application(APPLICATION_NAME, APPLICATION_VERSION);
+$application = new Application('GSnapUp');
 
-// Define application wide CLI option
-$application->getDefinition()
-	->addOption(new InputOption(
-		'working-dir',
-		'd',
-		InputOption::VALUE_REQUIRED,
-		'If specified, use the given directory as working directory',
-		getcwd()
-	));
+// Load version information
+$application->setVersionFromFile(__DIR__.'/version.txt');
 
 // Configure available commands
 $application->add(new Init);

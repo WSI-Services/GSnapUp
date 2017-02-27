@@ -38,7 +38,7 @@ trait ConfigurationTrait {
     protected function configurationInitialize(InputInterface $input, OutputInterface $output, $throwException = true) {
         try {
             $this->configuration = $this->getNewConfiguration(
-                realpath($input->getOption('working-dir')).'/'.CONFIGURATION_NAME
+                realpath($input->getOption('working-dir')).'/'.$this->getApplication()->getConfigurationFilename()
             );
 
             $this->configuration->load($throwException);
