@@ -58,6 +58,8 @@
             "@phpcs",
             "@phploc"
         ],
+        "install:autocomplete": "@composer global require bamarni/symfony-console-autocomplete",
+        "build:autocomplete": "symfony-autocomplete --aliases=gsnapup.phar ./bin/gsnapup > ./bin/gsnapup_completion",
         "install:pharbuilder": "@composer global require macfja/phar-builder",
         "build:phar": "phar-builder package ./composer.json"
     },
