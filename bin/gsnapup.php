@@ -9,6 +9,7 @@ use \WSIServices\GSnapUp\Console\Command\InstanceEnable;
 use \WSIServices\GSnapUp\Console\Command\InstanceList;
 use \WSIServices\GSnapUp\Console\Command\InstanceRemove;
 use \WSIServices\GSnapUp\Console\Command\InstanceUpdate;
+use \WSIServices\GSnapUp\Console\Command\Scheduled;
 use \WSIServices\GSnapUp\Console\Command\Snapshot;
 
 // Verify API is command line interface
@@ -43,6 +44,7 @@ $application->add(new InstanceEnable);
 $application->add(new InstanceList);
 $application->add(new InstanceRemove);
 $application->add(new InstanceUpdate);
+$application->add(new Scheduled);
 $application->add(new Snapshot);
 
 // Start application
