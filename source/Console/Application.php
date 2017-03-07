@@ -36,7 +36,7 @@ class Application extends SymfonyApplication {
      */
     public function setVersionFromFile($file) {
         if(is_readable($file)) {
-            $this->version = trim(file_get_contents($file));
+            $this->setVersion(trim(file_get_contents($file)));
         }
     }
 
