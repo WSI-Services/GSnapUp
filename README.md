@@ -30,10 +30,35 @@ Prior to utilizing the `GSnapUp` utility, the system it's running on requires
 the [GCP SDK][GCP-SDK] to be [installed][GCP-SDK-Install] and
 [initialized][GCP-SDK-Initialize], as well as [PHP 5.6+][PHP] to be available.
 
-After installing the `gcloud` utility, run its `init` command (if you are
-running the command on a remote system add the `--console-only` option):
+After installing the `gcloud` utility, set the GCP project (example):
 ```bash
-$ gcloud init --console-only
+$ gcloud config set project project01
+```
+
+Next you need to provide authorization with a `user account` or a `service
+account`.  This step can be difficult, make sure the account you associate has
+the necessary permissions to access the project you need it to.
+
+
+#### User Account
+
+Run the [login][GCP-SDK-Auth-Login] sub-command with a valid user account
+(example):
+```bash
+$ gcloud auth login user.account@gmail.com
+```
+
+
+#### Service Account
+
+You need to have a service account created and associated with the necessary
+projects.  From the GCP dashboard, access *IAM & Admin > Service accounts*,
+create a new service account or use an existing one with it's associated key
+file.  If you don't have a copy of the key file, create a new one and download
+the provided file.  Run the [activate-service-account][GCP-SDK-Auth-Service]
+sub-command with the service account and key file (example):
+```bash
+$ gcloud auth activate-service-account 234982379646-compute@developer.gserviceaccount.com --key-file=./project-name-769c5768547b.json
 ```
 
 
@@ -437,6 +462,10 @@ Reference
     "Google Cloud Platform - Install SDK Utility"
 [GCP-SDK-Initialize]: https://cloud.google.com/sdk/docs/initializing
     "Google Cloud Platform - Initialize SDK Utility"
+[GCP-SDK-Auth-Login]: https://cloud.google.com/sdk/gcloud/reference/auth/login
+    "Google Cloud Platform - gcloud auth login"
+[GCP-SDK-Auth-Service]: https://cloud.google.com/sdk/gcloud/reference/auth/activate-service-account
+    "Google Cloud Platform - gcloud auth activate-service-account"
 [PHP]: http://php.net
     "PHP: Hypertext Preprocessor"
 [Wiki-CRON]: https://en.wikipedia.org/wiki/Cron

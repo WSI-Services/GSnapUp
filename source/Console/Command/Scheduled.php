@@ -60,7 +60,7 @@ class Scheduled extends Command {
                     if($this->gSnapUp->isNoop()) {
                         $this->gSnapUpDisplayCommand($style, $result);
                     } else {
-                        $style->writeln($result);
+                        $style->writeln(' * '.$instanceToken.' : '.$diskToken);
                     }
                 }
             }
